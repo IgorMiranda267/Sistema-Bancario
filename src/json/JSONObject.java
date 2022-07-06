@@ -94,6 +94,10 @@ import java.util.Set;
  * @version 2014-05-03
  */
 public class JSONObject {
+
+    public char[] toJSONString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     /**
      * JSONObject.NULL is equivalent to the value that JavaScript calls null,
      * whilst Java's null is equivalent to the value that JavaScript calls
