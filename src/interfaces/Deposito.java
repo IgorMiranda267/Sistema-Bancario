@@ -1,20 +1,52 @@
-
 package interfaces;
 
+
+import contasBancarias.Conta;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
 public class Deposito extends javax.swing.JFrame {
+
     private String nome;
     private String cpf;
-    private int agencia;
+    private String agencia;
     private String numeroConta;
     private double valorDeposito;
     
-
+    
+    Conta c1 = new Conta();
+    
 
     public Deposito() {
         initComponents();
     }
 
- 
+    public void preencheArquivo() {    
+        json.JSONObject jsonObject = new json.JSONObject();
+        FileWriter writeFile = null;
+        
+        jsonObject.put("cpf", cpf);
+        jsonObject.put("senhalogin","");
+        jsonObject.put("nome", nome);
+        jsonObject.put("endereco", " ");
+        jsonObject.put("telefone", " ");
+        jsonObject.put("idConta","");
+        jsonObject.put("agencia", agencia);
+        jsonObject.put("numeroConta", numeroConta);
+        jsonObject.put("senhaBanco","");
+        c1.setSaldo((int) valorDeposito, "deposito");
+
+        try {
+            writeFile = new FileWriter("./src/arquivos/Cliente.json");
+            //Escreve no arquivo conteudo do Objeto JSON
+            writeFile.write(jsonObject.toString());
+            writeFile.close();// Fecha arquivo.
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -77,6 +109,11 @@ public class Deposito extends javax.swing.JFrame {
         });
 
         btn_deposito.setText("Depositar");
+        btn_deposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_depositoActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +154,7 @@ public class Deposito extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(jLabel6)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,11 +177,11 @@ public class Deposito extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_agencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txt_valorDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_deposito)
                     .addComponent(jButton2))
@@ -165,29 +202,40 @@ public class Deposito extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
-        nome = txt_nome.getText(); // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomeActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed
-        cpf = txt_cpf.getText();
-    }//GEN-LAST:event_txt_cpfActionPerformed
+    private void btn_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_depositoActionPerformed
+        valorDeposito = Double.parseDouble(txt_valorDeposito.getText());
+        agencia = txt_agencia.getText();
+        this.numeroConta = txt_conta.getText();
+        this.cpf = txt_cpf.getText();
+        this.nome = txt_nome.getText();
 
-    private void txt_contaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contaActionPerformed
-        numeroConta = txt_conta.getText();
-    }//GEN-LAST:event_txt_contaActionPerformed
-
-    private void txt_agenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_agenciaActionPerformed
-        agencia = Integer.parseInt(txt_agencia.getText());
-    }//GEN-LAST:event_txt_agenciaActionPerformed
+        preencheArquivo();
+        dispose();
+    }//GEN-LAST:event_btn_depositoActionPerformed
 
     private void txt_valorDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valorDepositoActionPerformed
-        valorDeposito = Double.parseDouble(txt_valorDeposito.getText());
+        
     }//GEN-LAST:event_txt_valorDepositoActionPerformed
+
+    private void txt_agenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_agenciaActionPerformed
+        
+    }//GEN-LAST:event_txt_agenciaActionPerformed
+
+    private void txt_contaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contaActionPerformed
+        
+    }//GEN-LAST:event_txt_contaActionPerformed
+
+    private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed
+        
+    }//GEN-LAST:event_txt_cpfActionPerformed
+
+    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
+       
+    }//GEN-LAST:event_txt_nomeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

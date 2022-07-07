@@ -19,7 +19,7 @@ public class Arquivos {
         FileWriter writeFile = null;
 
         //Armazena dados em um Objeto JSON
-        jsonObject.put("cpf", " 0000");
+        jsonObject.put("cpf", "");
         jsonObject.put("senhalogin","");
         jsonObject.put("nome", " ");
         jsonObject.put("endereco", " ");
@@ -28,7 +28,7 @@ public class Arquivos {
         jsonObject.put("agencia","");
         jsonObject.put("numeroConta","");
         jsonObject.put("senhaBanco","");
-        jsonObject.put("saldo","");
+        jsonObject.put("saldo","500");
 
         try {
             writeFile = new FileWriter("./src/arquivos/Cliente.json");
