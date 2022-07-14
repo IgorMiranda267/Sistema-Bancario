@@ -36,7 +36,7 @@ public class Arquivos {
             writeFile.write(jsonObject.toString());
             writeFile.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace();// Escreve no console o erro que foi gerado.
         }
 
         //Imprimne na Tela o Objeto JSON para vizualização
@@ -44,7 +44,7 @@ public class Arquivos {
     } 
     
     
-    public void criaAquivoFuncionario(){
+    public void criaAquivoFuncionario() throws IOException{
         //Cria um Objeto JSON
         JSONObject jsonObject = new JSONObject();
         FileWriter writeFile = null;
@@ -64,7 +64,10 @@ public class Arquivos {
             writeFile.write(jsonObject.toString());
             writeFile.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace();// Escreve no console o erro que foi gerado.
+        }
+        finally{
+            writeFile.close();
         }
 
         //Imprimne na Tela o Objeto JSON para vizualização
@@ -91,7 +94,7 @@ public class Arquivos {
             writeFile.write(jsonObject.toString());
             writeFile.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace();// Escreve no console o erro que foi gerado.
         }
 
         //Imprimne na Tela o Objeto JSON para vizualização

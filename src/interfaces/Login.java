@@ -3,26 +3,26 @@ package interfaces;
 
 import javax.swing.JOptionPane;
 
-
-/**
- *
- * @autho
- */
 public class Login extends javax.swing.JFrame {
     private String idUsuario;
     private String senhaUsuario;
     
     InterfaceCliente interfaceCliente = new InterfaceCliente();
+    InterfaceAdministrador interfaceAdministrador = new InterfaceAdministrador();
     
     
     public Login() {
         initComponents();   
     }
+    
+    
    
     public void controleDeAcesso(){
+        
+        
         if ((idUsuario.equals("123")) &&( senhaUsuario.equals("789"))) {
             this.dispose();
-            interfaceCliente.setVisible(true);
+            interfaceAdministrador.setVisible(true);
       
         }
         else{

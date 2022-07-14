@@ -2,11 +2,12 @@ package sistema;
 
 import arquivos.Arquivos;
 import interfaces.Login;
+import java.io.IOException;
 
 
 
 public class Sistema {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
        
         Arquivos arquivos = new Arquivos();
        

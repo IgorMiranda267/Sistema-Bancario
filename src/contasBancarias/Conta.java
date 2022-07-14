@@ -16,7 +16,7 @@ public class Conta {
     private int numeroConta;
     private int senha;
     private double saldo;
-    private ContaPoupanca ContaPoupanca; // Composição da Classe ContaPoupança.
+    private ContaPoupanca contaPoupanca; // Composição da Classe ContaPoupança.
     private ContaSalario contaSalario; // Composição da classe ContaSalario.
     private ContaCorrente contaCorrente; //Composição da classe ContaCorrente.
 
@@ -66,7 +66,6 @@ public class Conta {
     }
 
     public void setSaldo(double saldo, String operacao) {
-
         JSONObject jsonObject = null;
         JSONParser parser = new JSONParser();
 

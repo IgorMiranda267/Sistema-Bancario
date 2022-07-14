@@ -43,7 +43,7 @@ public class Deposito extends javax.swing.JFrame {
             writeFile.write(jsonObject.toString());
             writeFile.close();// Fecha arquivo.
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace();// Escreve no console o erro que foi gerado.
         }
     }
 
