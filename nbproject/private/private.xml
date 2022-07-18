@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/interfaces/Login.java</file>
-            <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/arquivos/Cliente.json</file>
-            <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/contasBancarias/Conta.java</file>
-            <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/interfaces/Saque.java</file>
+            <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/sistema/Sistema.java</file>
+            <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/interfaces/cliente/Deposito.java</file>
             <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/arquivos/Arquivos.java</file>
+            <file>file:/C:/Users/igorm/Documents/NetBeansProjects/RichBanck/src/arquivos/Administrador.json</file>
         </group>
     </open-files>
 </project-private>

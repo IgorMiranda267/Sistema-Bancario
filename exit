@@ -1,0 +1,35 @@
+[33mcommit 196286ac02c303ee579decaeedb45e1b6e4313d0[m[33m ([m[1;36mHEAD -> [m[1;32mbranch-02[m[33m, [m[1;31morigin/branch-02[m[33m)[m
+Author: Igor Miranda <igormiranda267@gmail.com>
+Date:   Thu Jul 14 19:30:06 2022 -0300
+
+    Criação das interfaces Adm, Funcionario
+
+[33mcommit d0d4537bf2a0661abf94ef5d5252e8008dbeecba[m
+Author: Igor Miranda <igormiranda267@gmail.com>
+Date:   Thu Jul 7 16:54:42 2022 -0300
+
+    Integração dos arquivos com as classes
+
+[33mcommit 0af69cfbf1fc5bd423a6b56e9528d3c439d40da1[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Igor Miranda <igormiranda267@gmail.com>
+Date:   Wed Jul 6 16:53:40 2022 -0300
+
+    Criação dos aquivos para Cliente, Funcionário e ADM
+
+[33mcommit c5a70daee51aa0db7952a9fac66bb96ca15712eb[m
+Author: Igor Miranda <igormiranda267@gmail.com>
+Date:   Sat Jul 2 23:57:05 2022 -0300
+
+    Atualização da interface Cliente
+
+[33mcommit 5cfcf6791252bcdcfc215e2ca507341459440bf3[m[33m ([m[1;31morigin/branch-01[m[33m)[m
+Author: Igor Miranda <igormiranda267@gmail.com>
+Date:   Sat Jul 2 19:30:16 2022 -0300
+
+    Classe abstrata criada
+
+[33mcommit 6fc2b56a8fcd55ffdcec4c5352e3edbc185fafd7[m
+Author: Igor Miranda <igormiranda267@gmail.com>
+Date:   Sat Jul 2 18:34:32 2022 -0300
+
+    Interface cliente pronta
