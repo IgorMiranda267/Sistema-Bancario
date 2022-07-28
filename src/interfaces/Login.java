@@ -64,10 +64,6 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Dados Invalidos!");
         }    
     }
-   
-    
-    
-   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

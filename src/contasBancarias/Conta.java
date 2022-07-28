@@ -11,13 +11,13 @@ import org.json.simple.parser.ParseException;
 public class Conta {
 
     private static int totalDeContas;
-    private int idConta;
-    private int agencia;
+    private Agencia IdAgencia;
+    private Agencia nomeAgencia;
+    private Agencia enderecoAgencia;
     private int numeroConta;
     private int senha;
     private double saldo;
     private ContaPoupanca contaPoupanca; // Composição da Classe ContaPoupança.
-    private ContaSalario contaSalario; // Composição da classe ContaSalario.
     private ContaCorrente contaCorrente; //Composição da classe ContaCorrente.
 
     //Construtor padrão que vai contar o total de contas.
@@ -28,23 +28,7 @@ public class Conta {
     public static int getTotalDeContas() {
         return totalDeContas;
     }
-
-    public int getIdConta() {
-        return idConta;
-    }
-
-    public void setIdConta(int idConta) {
-        this.idConta = idConta;
-    }
-
-    public int getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
-    }
-
+    
     public int getNumeroConta() {
         return numeroConta;
     }
@@ -59,6 +43,30 @@ public class Conta {
 
     public void setSenha(int senha) {
         this.senha = senha;
+    }
+
+    public Agencia getIdAgencia() {
+        return IdAgencia;
+    }
+
+    public void setIdAgencia(Agencia IdAgencia) {
+        this.IdAgencia = IdAgencia;
+    }
+
+    public Agencia getNomeAgencia() {
+        return nomeAgencia;
+    }
+
+    public void setNomeAgencia(Agencia nomeAgencia) {
+        this.nomeAgencia = nomeAgencia;
+    }
+
+    public Agencia getEnderecoAgencia() {
+        return enderecoAgencia;
+    }
+
+    public void setEnderecoAgencia(Agencia enderecoAgencia) {
+        this.enderecoAgencia = enderecoAgencia;
     }
 
     public double getSaldo() {
@@ -93,7 +101,7 @@ public class Conta {
                 saldoAtual = saldoAtual - saldo;
                 FileWriter writeFile = null;
 
-                jsonObject.put("saldo",saldoAtual);
+                jsonObject.put("saldo", saldoAtual);
 
                 try {
                     writeFile = new FileWriter("./src/arquivos/Cliente.json");
@@ -114,5 +122,6 @@ public class Conta {
             saldoAtual = saldoAtual + saldo;
         }
     }
-
+  
+    
 }

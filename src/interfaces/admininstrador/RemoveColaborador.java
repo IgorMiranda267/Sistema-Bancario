@@ -10,7 +10,8 @@ package interfaces.admininstrador;
  */
 public class RemoveColaborador extends javax.swing.JFrame {
 
-
+    String cpf;  
+    
     public RemoveColaborador() {
         initComponents();
     }
@@ -21,12 +22,12 @@ public class RemoveColaborador extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
+        txt_cpf = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel5.setText("ID:");
+        jLabel5.setText("CPF:");
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -35,9 +36,9 @@ public class RemoveColaborador extends javax.swing.JFrame {
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txt_cpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txt_cpfActionPerformed(evt);
             }
         });
 
@@ -66,7 +67,7 @@ public class RemoveColaborador extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField5)))
+                            .addComponent(txt_cpf)))
                     .addGap(86, 86, 86)))
         );
         layout.setVerticalGroup(
@@ -77,7 +78,7 @@ public class RemoveColaborador extends javax.swing.JFrame {
                     .addGap(112, 112, 112)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(32, 32, 32)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
@@ -92,12 +93,13 @@ public class RemoveColaborador extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txt_cpfActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        cpf = txt_cpf.getText();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -106,6 +108,6 @@ public class RemoveColaborador extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txt_cpf;
     // End of variables declaration//GEN-END:variables
 }
