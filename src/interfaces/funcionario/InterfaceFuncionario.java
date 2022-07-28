@@ -2,7 +2,7 @@ package interfaces.funcionario;
 
 public class InterfaceFuncionario extends javax.swing.JFrame {
     
-    CriarCliente  criarConta = new CriarCliente();
+    AddCliente  criarConta = new AddCliente();
     AlterarConta alterarConta = new AlterarConta();
     RemoveCliente removerCliente = new RemoveCliente();
     
