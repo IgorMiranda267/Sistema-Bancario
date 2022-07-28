@@ -21,6 +21,11 @@ public class ContaCorrente {
     public void setTaxaManutenção(double taxaManutenção) {
         this.taxaManutenção = taxaManutenção;
     }
+
+    @Override
+    public String toString() {
+        return "ContaCorrente{" + "taxaManuten\u00e7\u00e3o=" + taxaManutenção + '}';
+    }
     
     
     

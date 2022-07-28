@@ -1,43 +1,34 @@
-
 package contasBancarias;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class Conta {
+
     private static int totalDeContas;
-    private int idConta;
-    private int agencia;
+    private Agencia IdAgencia;
+    private Agencia nomeAgencia;
+    private Agencia enderecoAgencia;
     private int numeroConta;
     private int senha;
-    private int saldo;
-    private ContaPoupanca ContaPoupanca; // Composição da Classe ContaPoupança.
-    private ContaSalario contaSalario; // Composição da classe ContaSalario.
+    private double saldo;
+    private ContaPoupanca contaPoupanca; // Composição da Classe ContaPoupança.
     private ContaCorrente contaCorrente; //Composição da classe ContaCorrente.
 
-   //Construtor padrão que vai contar o total de contas.
-   public Conta(){
-       Conta.totalDeContas  = Conta.totalDeContas + 1;
-   }
+    //Construtor padrão que vai contar o total de contas.
+    public Conta() {
+        Conta.totalDeContas = Conta.totalDeContas + 1;
+    }
 
     public static int getTotalDeContas() {
         return totalDeContas;
     }
-
-    public int getIdConta() {
-        return idConta;
-    }
-
-    public void setIdConta(int idConta) {
-        this.idConta = idConta;
-    }
-
-    public int getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
-    }
-
+    
     public int getNumeroConta() {
         return numeroConta;
     }
@@ -54,31 +45,83 @@ public class Conta {
         this.senha = senha;
     }
 
-    public int getSaldo() {
+    public Agencia getIdAgencia() {
+        return IdAgencia;
+    }
+
+    public void setIdAgencia(Agencia IdAgencia) {
+        this.IdAgencia = IdAgencia;
+    }
+
+    public Agencia getNomeAgencia() {
+        return nomeAgencia;
+    }
+
+    public void setNomeAgencia(Agencia nomeAgencia) {
+        this.nomeAgencia = nomeAgencia;
+    }
+
+    public Agencia getEnderecoAgencia() {
+        return enderecoAgencia;
+    }
+
+    public void setEnderecoAgencia(Agencia enderecoAgencia) {
+        this.enderecoAgencia = enderecoAgencia;
+    }
+
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo, String operacao) {
-        
+    public void setSaldo(double saldo, String operacao) {
+        JSONObject jsonObject = null;
+        JSONParser parser = new JSONParser();
+
+        String saldoArquivo = null;
+        double saldoAtual = 0.0;
+
+        try {
+            //Salva no objeto JSONObject o que o parse tratou do arquivo
+            jsonObject = (JSONObject) parser.parse(new FileReader("./src/arquivos/Cliente.json"));
+
+            //Salva nas variaveis os dados retirados do arquivo
+            saldoArquivo = (String) jsonObject.get("saldo");
+
+            System.out.printf("saldo arquivo: %s\n", saldoArquivo);
+        } //Trata as exceptions que podem ser lançadas no decorrer do processo
+        catch (FileNotFoundException e) {
+        } catch (IOException | ParseException e) {
+        }
+        // TODO Auto-generated catch block
+        saldoAtual = Double.parseDouble(saldoArquivo);
+
         //Verifica se o saldo a sacar ou transdferir e maior ou igual ao saldo presente na conta
-        if((operacao.equals("saque")) || (operacao.equals("transferencia"))){
-            if(this.saldo >= saldo){
-                this.saldo = this.saldo - saldo;
-            }
-            else{
+        if ((operacao.equals("saque")) || (operacao.equals("transferencia"))) {
+            if (saldoAtual >= saldo) {
+                saldoAtual = saldoAtual - saldo;
+                FileWriter writeFile = null;
+
+                jsonObject.put("saldo", saldoAtual);
+
+                try {
+                    writeFile = new FileWriter("./src/arquivos/Cliente.json");
+                    //Escreve no arquivo conteudo do Objeto JSON
+                    writeFile.write(jsonObject.toString());
+                    writeFile.close();// Fecha arquivo.
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } else {
                 //saldo infuciente
             }
         }
-        
+
         //Caso o cliente escolha deposito na interface credita o valor na conta.
-         if(operacao == "deposito"){
-             this.saldo = this.saldo + saldo;
-         }
-        
+        if ("deposito".equals(operacao)) {
+            saldoAtual = saldoAtual + saldo;
+        }
     }
-   
-   
-
+  
     
-
 }

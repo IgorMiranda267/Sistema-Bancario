@@ -22,6 +22,11 @@ public class ContaPoupanca {
     public void setLimiteSaque(double limiteSaque) {
         this.limiteSaque = limiteSaque;
     }
+
+    @Override
+    public String toString() {
+        return "ContaPoupanca{" + "limiteSaque=" + limiteSaque + '}';
+    }
     
     
     

@@ -1,38 +1,69 @@
 
 package interfaces;
 
+import interfaces.cliente.InterfaceCliente;
+import interfaces.admininstrador.InterfaceAdministrador;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JOptionPane;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.json.simple.JSONObject;
 
-
-/**
- *
- * @autho
- */
 public class Login extends javax.swing.JFrame {
     private String idUsuario;
     private String senhaUsuario;
     
     InterfaceCliente interfaceCliente = new InterfaceCliente();
+    InterfaceAdministrador interfaceAdministrador = new InterfaceAdministrador();
     
     
     public Login() {
         initComponents();   
     }
+    
+    
    
-    public void controleDeAcesso(){
-        if ((idUsuario.equals("123")) &&( senhaUsuario.equals("789"))) {
+    public void controleDeAcesso() throws ParseException{
+        
+            JSONObject jsonObject;
+            //Cria o parse de tratamento
+            JSONParser parser = new JSONParser();
+            //Variaveis que irao armazenar os dados do arquivo JSON
+            String id = null;
+            String senha = null;
+      
+
+            try {
+                //Salva no objeto JSONObject o que o parse tratou do arquivo
+                jsonObject = (org.json.simple.JSONObject) parser.parse(new FileReader("./src/arquivos/Administrador.json"));
+
+                //Salva nas variaveis os dados retirados do arquivo
+                id = (String) jsonObject.get("id");
+                senha = (String) jsonObject.get("senha");
+              
+                System.out.printf("Nome: %s\nid: %s\nsenha: ",id, senha);
+            } //Trata as exceptions que podem ser lançadas no decorrer do processo
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        
+        if ( (senhaUsuario.equals(senha)) && (idUsuario.equals(id))) {
             this.dispose();
-            interfaceCliente.setVisible(true);
+             //interfaceAdministrador.setVisible(true);
+             interfaceAdministrador.setVisible(true);
       
         }
         else{
             JOptionPane.showMessageDialog(rootPane, "Dados Invalidos!");
-        }       
+        }    
     }
-   
-    
-    
-   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -160,9 +191,11 @@ public class Login extends javax.swing.JFrame {
         this.idUsuario = campoId.getText();
         this.senhaUsuario = campoSenha.getText();
         
-        controleDeAcesso();
-        
-        
+        try {
+            controleDeAcesso();
+        } catch (ParseException ex) {
+            
+        }     
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
