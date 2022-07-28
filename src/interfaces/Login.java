@@ -1,4 +1,3 @@
-
 package interfaces;
 
 import interfaces.cliente.InterfaceCliente;
@@ -12,57 +11,53 @@ import org.json.simple.parser.ParseException;
 import org.json.simple.JSONObject;
 
 public class Login extends javax.swing.JFrame {
+
     private String idUsuario;
     private String senhaUsuario;
-    
+
     InterfaceCliente interfaceCliente = new InterfaceCliente();
     InterfaceAdministrador interfaceAdministrador = new InterfaceAdministrador();
-    
-    
+
     public Login() {
-        initComponents();   
+        initComponents();
     }
-    
-    
-   
-    public void controleDeAcesso() throws ParseException{
-        
-            JSONObject jsonObject;
-            //Cria o parse de tratamento
-            JSONParser parser = new JSONParser();
-            //Variaveis que irao armazenar os dados do arquivo JSON
-            String id = null;
-            String senha = null;
-      
 
-            try {
-                //Salva no objeto JSONObject o que o parse tratou do arquivo
-                jsonObject = (org.json.simple.JSONObject) parser.parse(new FileReader("./src/arquivos/Administrador.json"));
+    public void controleDeAcesso() throws ParseException {
 
-                //Salva nas variaveis os dados retirados do arquivo
-                id = (String) jsonObject.get("id");
-                senha = (String) jsonObject.get("senha");
-              
-                System.out.printf("Nome: %s\nid: %s\nsenha: ",id, senha);
-            } //Trata as exceptions que podem ser lançadas no decorrer do processo
-            catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        
-        if ( (senhaUsuario.equals(senha)) && (idUsuario.equals(id))) {
-            this.dispose();
-             //interfaceAdministrador.setVisible(true);
-             interfaceAdministrador.setVisible(true);
-      
+        JSONObject jsonObject;
+        //Cria o parse de tratamento
+        JSONParser parser = new JSONParser();
+        //Variaveis que irao armazenar os dados do arquivo JSON
+        String id = null;
+        String senha = null;
+
+        try {
+            //Salva no objeto JSONObject o que o parse tratou do arquivo
+            jsonObject = (org.json.simple.JSONObject) parser.parse(new FileReader("./src/arquivos/Administrador.json"));
+
+            //Salva nas variaveis os dados retirados do arquivo
+            id = (String) jsonObject.get("id");
+            senha = (String) jsonObject.get("senha");
+
+            System.out.printf("Nome: %s\nid: %s\nsenha: ", id, senha);
+        } //Trata as exceptions que podem ser lançadas no decorrer do processo
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        else{
+
+        if ((senhaUsuario.equals(senha)) && (idUsuario.equals(id))) {
+            this.dispose();
+            //interfaceAdministrador.setVisible(true);
+            interfaceAdministrador.setVisible(true);
+
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Dados Invalidos!");
-        }    
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -183,19 +178,19 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdActionPerformed
-        
+
     }//GEN-LAST:event_campoIdActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        
+
         this.idUsuario = campoId.getText();
         this.senhaUsuario = campoSenha.getText();
-        
+
         try {
             controleDeAcesso();
         } catch (ParseException ex) {
-            
-        }     
+
+        }
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -206,7 +201,6 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_campoSenhaActionPerformed
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
@@ -219,4 +213,3 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
-

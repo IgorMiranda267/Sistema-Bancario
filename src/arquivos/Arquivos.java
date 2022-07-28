@@ -119,4 +119,12 @@ public class Arquivos {
         //Imprimne na Tela o Objeto JSON para vizualização
         System.out.println(jsonObject);
     }
+    
+    public List leituraArquivoCliente(String cpf){
+        
+        
+        
+        return null;
+        
+    }
 }
